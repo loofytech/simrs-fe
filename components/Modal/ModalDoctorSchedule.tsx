@@ -28,6 +28,11 @@ export default function ModalDoctorSchedule({index, cbDelete, data, cbChange}: M
     setDay(evt.target.value);
   }
 
+  const handleChangeTime = (evt: any, identity: string) => {
+    cbChange(index, {[identity]: evt.target.value});
+    setTime(evt.target.value)
+  }
+
   return (<div className="d-flex align-items-center gap-2">
     <select className="form-control" value={day} onChange={(evt) => handleChangeDay(evt, "day")}>
       <option value="Senin">Senin</option>
@@ -43,7 +48,7 @@ export default function ModalDoctorSchedule({index, cbDelete, data, cbChange}: M
       placeholder="JAM : MENIT"
       className="form-control"
       value={time}
-      onChange={(evt) => setTime(evt.target.value)}
+      onChange={(evt) => handleChangeTime(evt, "time")}
     />
     <button type="button" className="btn btn-icon btn-danger" onClick={cancelSchedule}>
       <span className="tf-icons bx bxs-trash-alt"></span>
