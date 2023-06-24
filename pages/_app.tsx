@@ -1,9 +1,13 @@
 import "@/styles/globals.css";
 import type { AppProps } from "next/app";
+import Head from "next/head";
 import Script from "next/script";
 
 export default function App({ Component, pageProps }: AppProps) {
   return (<>
+    <Head>
+      <title>Simrs Loofytech</title>
+    </Head>
     <Component {...pageProps} />
     <Script src="/js/jquery.js"></Script>
     <Script src="/js/popper.js"></Script>

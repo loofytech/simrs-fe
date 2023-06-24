@@ -15,6 +15,14 @@ const menus = [
     children: [
       {path: "", label: "Daftar Dokter"}
     ]
+  },
+  {
+    path: "/medicine",
+    label: "Obat",
+    icon: "bx-plus-medical",
+    children: [
+      {path: "", label: "Daftar Obat"}
+    ]
   }
 ];
 
