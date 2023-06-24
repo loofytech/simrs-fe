@@ -3,3 +3,15 @@
 @import url("boxicons.css");
 @import url("layout.css");
 @import url("perfect-scrollbar.css");
+
+.rdt_TableHeadRow,
+.rdt_TableCell {
+  font-size: 14px !important;
+}
+.rdt_TableHeadRow {
+  font-weight: 700;
+}
+.modal .modal-header .btn-close {
+  margin: 0 !important;
+  transform: unset !important;
+}

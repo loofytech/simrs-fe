@@ -11,7 +11,7 @@ const INLINE_STYLES = `
 }`
 
 // Guard
-function requiredParam() {
+function requiredParam(name) {
   throw new Error(`Parameter required${name ? `: \`${name}\`` : ''}`)
 }
 
@@ -663,6 +663,9 @@ const Helpers = {
       .forEach(listener => this._listeners.splice(this._listeners.indexOf(listener), 1))
   },
 
+  // *******************************************************************************
+  // * Life cycle
+
   init() {
     if (this._initialized) return
     this._initialized = true
@@ -718,6 +721,8 @@ const Helpers = {
       .forEach(listener => this._listeners.splice(this._listeners.indexOf(listener), 1))
   },
 
+  // ---
+  // Init Password Toggle
   initPasswordToggle() {
     const toggler = document.querySelectorAll('.form-password-toggle i')
     if (typeof toggler !== 'undefined' && toggler !== null) {
@@ -740,6 +745,8 @@ const Helpers = {
     }
   },
 
+  // ---
+  // Init Speech To Text
   initSpeechToText() {
     const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition
     const speechToText = document.querySelectorAll('.speech-to-text')
@@ -773,6 +780,7 @@ const Helpers = {
     }
   },
 
+  // Ajax Call Promise
   ajaxCall(url) {
     return new Promise((resolve, reject) => {
       const req = new XMLHttpRequest()
@@ -783,6 +791,8 @@ const Helpers = {
     })
   },
 
+  // ---
+  // SidebarToggle (Used in Apps)
   initSidebarToggle() {
     const sidebarToggler = document.querySelectorAll('[data-bs-toggle="sidebar"]')
 
@@ -817,7 +827,10 @@ const Helpers = {
   }
 }
 
-if (typeof window != 'undefined') {
+// *******************************************************************************
+// * Initialization
+
+if (typeof window !== 'undefined') {
   Helpers.init()
 
   if (Helpers.isMobileDevice() && window.chrome) {

@@ -1,8 +1,5 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-import "./Sidebar/menu";
-import "./Sidebar/helpers";
-import { mainMenu } from "./Sidebar/main";
 import { useEffect } from "react";
 
 const menus = [
@@ -25,7 +22,6 @@ export default function Sidebar() {
   const router = useRouter();
 
   useEffect(() => {
-    mainMenu();
   }, [router]);
 
   const activeMenu = (path: string, children: boolean) => {
