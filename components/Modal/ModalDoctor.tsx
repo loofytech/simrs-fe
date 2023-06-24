@@ -17,12 +17,7 @@ interface MProps {
 export default function ModalDoctor({label, className, type, data}: MProps) {
   const [name, setName] = useState<string>("");
   const [unit, setUnit] = useState<string>("");
-  const [schedule, setSchedule] = useState<any>([
-    {day: "Senin", time: ""},
-    {day: "Selasa", time: ""},
-    {day: "Rabu", time: ""},
-    {day: "Kamis", time: ""}
-  ]);
+  const [schedule, setSchedule] = useState<any>([]);
 
   const setUpdateData = () => {
     if (data) {
