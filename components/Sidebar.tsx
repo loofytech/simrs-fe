@@ -21,7 +21,9 @@ const menus = [
     label: "Obat",
     icon: "bx-plus-medical",
     children: [
-      {path: "", label: "Daftar Obat"}
+      {path: "", label: "Daftar Obat"},
+      {path: "/entry", label: "Obat Masuk"},
+      {path: "/out", label: "Obat Keluar"}
     ]
   }
 ];

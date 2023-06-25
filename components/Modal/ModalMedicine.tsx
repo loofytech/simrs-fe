@@ -156,19 +156,6 @@ export default function ModalMedicine({label, className, type, data}: MProps) {
                 </div>
               </div>
             </div>
-            <div className="row">
-              <div className="col mb-3">
-                <label className="form-label">STOK AWAL</label>
-                <Cleave
-                  options={{numeral: true, delimiter: "", numeralPositiveOnly: true}}
-                  className="form-control"
-                  autoComplete="off"
-                  placeholder="Cth: 10.000"
-                  value={stock}
-                  onChange={(evt) => setStock(evt.target.value)}
-                />
-              </div>
-            </div>
           </div>
           <hr style={{height: "0.5px"}} />
           <div className="modal-footer">
