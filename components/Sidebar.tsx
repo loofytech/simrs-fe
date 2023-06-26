@@ -27,6 +27,14 @@ const menus = [
       {path: "/entry", label: "Obat Masuk"},
       {path: "/out", label: "Obat Keluar"}
     ]
+  },
+  {
+    path: "/patient",
+    label: "Pasien",
+    icon: "bxs-user-rectangle",
+    children: [
+      {path: "", label: "Daftar Pasien"},
+    ]
   }
 ];
 
