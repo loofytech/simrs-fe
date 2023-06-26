@@ -42,6 +42,7 @@ let menu, animate;
       clearTimeout(timeout);
     };
   };
+
   if (document.getElementById('layout-menu')) {
     delay(document.getElementById('layout-menu'), function () {
       // not for small screen

@@ -187,7 +187,6 @@ class Menu {
     return menu
   }
 
-  // Has class
   static _hasClass(cls, el = Helpers.ROOT_EL) {
     let result = false
 
