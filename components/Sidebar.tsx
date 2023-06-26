@@ -2,6 +2,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import Script from "next/script";
+import { menuScript } from "@/utils/staticScript";
 
 const menus = [
   {
@@ -32,17 +33,24 @@ const menus = [
 export default function Sidebar() {
   const router = useRouter();
 
+  useEffect(() => {
+    menuScript(false);
+    setTimeout(() => menuScript(true), 1000);
+  }, [router]);
+
   const activeMenu = (path: string, children: boolean) => {
     const p = path.split("/")[1];
     const r = router.pathname.split("/")[1];
     if (p == r && !children) return "active";
     if (p == r && children) return "active open";
+    else return "d3v";
   }
 
   const activeSubMenu = (path: string) => {
     const p = path.split("/");
     const r = router.pathname.split("/");
     if (p[p.length - 1] == r[r.length - 1]) return "active";
+    else return "d3v";
   }
 
   return (<>
@@ -50,9 +58,6 @@ export default function Sidebar() {
     <Script src="/js/popper.js"></Script>
     <Script src="/js/bootstrap.js"></Script>
     <Script src="/js/perfect-scrollbar.js" type="module"></Script>
-    <Script src="/js/helpers.js" type="module"></Script>
-    <Script src="/js/menu.js" type="module"></Script>
-    <Script src="/js/main.js" type="module"></Script>
     <ul className="menu-inner py-1">
       {menus.map((data: any, iteration: number) => {
         if (!data.children) {

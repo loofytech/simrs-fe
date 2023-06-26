@@ -827,9 +827,6 @@ const Helpers = {
   }
 }
 
-// *******************************************************************************
-// * Initialization
-
 if (typeof window !== 'undefined') {
   Helpers.init()
 
@@ -837,13 +834,11 @@ if (typeof window !== 'undefined') {
     document.documentElement.classList.add('layout-menu-100vh')
   }
 
-  // Update layout after page load
   if (document.readyState === 'complete') Helpers.update()
-  else
-    document.addEventListener('DOMContentLoaded', function onContentLoaded() {
-      Helpers.update()
-      document.removeEventListener('DOMContentLoaded', onContentLoaded)
-    })
+  else document.addEventListener('DOMContentLoaded', function onContentLoaded() {
+    Helpers.update()
+    document.removeEventListener('DOMContentLoaded', onContentLoaded)
+  })
 }
 
 export { Helpers }
