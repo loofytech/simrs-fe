@@ -42,13 +42,15 @@ export default function ListPatient() {
     dispatch(setCreate(true));
   }
 
-  return <div className="card">
-    <div className="card-body">
-      <h4 className="mb-3">Daftar Pasien</h4>
-      <div className="d-flex align-items-center gap-1 mb-2">
-        <button type="button" className="btn btn-primary" onClick={createPatient}>Pemdaftaran Pasien</button>
+  return <div className="col-lg-12">
+    <div className="card">
+      <div className="card-body">
+        <h4 className="mb-3">Daftar Pasien</h4>
+        <div className="d-flex align-items-center gap-1 mb-2">
+          <button type="button" className="btn btn-primary" onClick={createPatient}>Pemdaftaran Pasien</button>
+        </div>
+        <TableData column={columns} data={data} />
       </div>
-      <TableData column={columns} data={data} />
     </div>
-  </div>
+  </div>;
 }

@@ -9,9 +9,7 @@ export default function Patient() {
   return (
     <AppLayout>
       <div className="row">
-        <div className="col-lg-12 order-0">
-          {!CREATE_PATIENT ? <ListPatient /> : <FormPatient />}
-        </div>
+        {!CREATE_PATIENT ? <ListPatient /> : <FormPatient />}
       </div>
     </AppLayout>
   );
