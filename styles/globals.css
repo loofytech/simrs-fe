@@ -1,17 +1,68 @@
-@import url("core.css");
-@import url("theme-default.css");
-@import url("boxicons.css");
-@import url("layout.css");
-@import url("perfect-scrollbar.css");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-.rdt_TableHeadRow,
-.rdt_TableCell {
-  font-size: 14px !important;
+body {
+  background-color: rgb(245,245,249);
+}
+.tab.tab-active:not(.tab-disabled):not([disabled]) {
+  border-color: rgb(192, 42, 52);
+}
+.menu-item,
+.menu-item-nested {
+  color: rgb(0, 0, 0);
+}
+.menu-item.menu-active,
+.menu-item.menu-active:hover,
+.menu-item.menu-active:focus,
+.menu-item.menu-active:active,
+.menu-item.menu-active *:hover {
+  background-color: rgb(192, 42, 52);
+  color: rgb(255, 255, 255);
+  font-weight: 600;
+}
+.menu-item-nested.menu-active,
+.menu-item-nested.menu-active:active,
+.menu-item-nested.menu-active:focus {
+  background-color: rgb(192, 42, 52);
+}
+.menu-item-nested.menu-active label,
+.menu-item-nested.menu-active label:active,
+.menu-item-nested.menu-active label:focus {
+  background-color: rgb(192, 42, 52);
+  color: rgb(255, 255, 255);
+}
+.menu-item-nested.menu-active .nested-item.nested-active,
+.menu-item-nested.menu-active .nested-item.nested-active:hover,
+.menu-item-nested.menu-active .nested-item.nested-active:focus,
+.menu-item-nested.menu-active .nested-item.nested-active:active {
+  color: rgb(192, 42, 52);
+  font-weight: 500;
+}
+.menu-item-nested .nested-item:hover,
+.menu-item-nested .nested-item:active,
+.menu-item-nested .nested-item:focus {
+  background-color: transparent;
+  color: rgb(0, 0, 0);
+}
+.divider:before,
+.divider:after {
+  height: 1px;
+}
+.rdt_Table {
+  border-radius: 0.5rem;
+  overflow: hidden;
 }
 .rdt_TableHeadRow {
-  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 15px;
+  font-weight: 600;
+  border-bottom: 0 !important;
+  color: rgb(255, 255, 255);
 }
-.modal .modal-header .btn-close {
-  margin: 0 !important;
-  transform: unset !important;
+.rdt_TableHeadRow .rdt_TableCol {
+  background: rgb(192, 42, 52);
+}
+.rdt_TableBody .rdt_TableRow {
+  font-size: 14px;
 }

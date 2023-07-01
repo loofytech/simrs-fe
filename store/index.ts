@@ -1,8 +1,8 @@
 import { configureStore } from "@reduxjs/toolkit";
-import patientReducer from "@/store/reducers/patientReducer";
+import userReducer from "@/store/reducers/user";
 
 export default configureStore({
   reducer: {
-    patientReducer
+    user: userReducer
   }
 });
