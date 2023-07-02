@@ -30,7 +30,7 @@ export default function Sidebar({children}: CProps) {
     </div>
     <div className="drawer-side border-r-0 shadow rounded-r-lg overflow-y-visible md:border-r">
       <label htmlFor="sidebar" className="drawer-overlay"></label>
-      <ul className="menu p-4 w-64 h-full bg-white text-base-content flex-nowrap w-full">
+      <ul className="menu p-4 w-64 h-full bg-white text-base-content flex-nowrap">
         <div className="py-6 mb-3">
           <span className="text-3xl font-semibold">SIMRS</span><sub className="text-primary">v1.0.0</sub>
         </div>

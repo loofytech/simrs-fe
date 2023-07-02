@@ -16,7 +16,7 @@ const routes = [
     icon: <FiAirplay size={22} />
   },
   {
-    label: "General",
+    label: "Pasien",
     path: "/dashboard/general",
     icon: <FiUser size={22} />,
     children: [
@@ -39,7 +39,7 @@ const routes = [
     ]
   },
   {
-    label: "Time Management",
+    label: "Obat",
     path: "/dashboard/time",
     icon: <FiTarget size={22} />,
     children: [
@@ -58,53 +58,19 @@ const routes = [
     ]
   },
   {
-    label: "Payroll",
-    path: "/dashboard/payroll",
+    label: "Dokter",
+    path: "/dashboard/doctor",
     icon: <FiBriefcase size={22} />,
     children: [
       {
-        label: "Payroll Info",
-        path: "/info"
+        label: "List Dokter",
+        path: "/list"
       },
       {
-        label: "Payslip",
-        path: "/payslip"
+        label: "Jadwal Dokter",
+        path: "/schedule"
       }
     ]
-  },
-  {
-    label: "Finance",
-    path: "/dashboard/finance",
-    icon: <FiCreditCard size={22} />,
-    children: [
-      {
-        label: "Reimbursement",
-        path: "/reimbursement"
-      },
-      {
-        label: "Loan",
-        path: "/loan"
-      },
-      {
-        label: "Cash Advance",
-        path: "/cash-advance"
-      }
-    ]
-  },
-  {
-    label: "Files",
-    path: "/dashboard/files",
-    icon: <FiFileText size={22} />
-  },
-  {
-    label: "Assets",
-    path: "/dashboard/assets",
-    icon: <FiArchive size={22} />
-  },
-  {
-    label: "History",
-    path: "/dashboard/history",
-    icon: <FiGrid size={22} />
   }
 ];
 
