@@ -1,7 +1,7 @@
 import AppLayout from "@/layouts/AppLayout";
 import TableData from "@/components/DataTable";
 
-export default function Timeoff() {
+export default function MedicineOut() {
   const columns = [
     {name: "Created Date", selector: (row: any) => row.created_date},
     {name: "Policy Code", selector: (row: any) => row.policy_code},

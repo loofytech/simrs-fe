@@ -40,20 +40,20 @@ const routes = [
   },
   {
     label: "Obat",
-    path: "/dashboard/time",
+    path: "/dashboard/medicine",
     icon: <FiTarget size={22} />,
     children: [
       {
-        label: "Attendance",
-        path: "/attendance"
+        label: "List Obat",
+        path: "/list"
       },
       {
-        label: "Timeoff",
-        path: "/timeoff"
+        label: "Obat Masuk",
+        path: "/in"
       },
       {
-        label: "Overtime",
-        path: "/overtime"
+        label: "Obat Keluar",
+        path: "/out"
       }
     ]
   },

@@ -1,7 +1,7 @@
 import AppLayout from "@/layouts/AppLayout";
 import TableData from "@/components/DataTable";
 
-export default function Overtime() {
+export default function MedicineIn() {
   const columns = [
     {name: "Created Date", selector: (row: any) => row.created_date},
     {name: "Overtime Date", selector: (row: any) => row.overtime_date},
