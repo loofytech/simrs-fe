@@ -29,7 +29,7 @@ export default function ListmMdicine() {
         <button type="button" className="border-2 border-primary bg-white rounded-lg py-2.5 px-3.5">Tambah Obat</button>
         {/* <button type="button" className="border-2 border-primary bg-white rounded-lg py-2.5 px-3.5">View Attendance Log</button> */}
       </div>
-      <div className={data.length > 0 ? "mt-12" : "mt-0"}>
+      <div className={data.length > 0 ? "mt-6" : "mt-0"}>
         <TableData column={columns} data={data} />
       </div>
     </div>

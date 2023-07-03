@@ -36,15 +36,15 @@ export default function MedicineOut() {
     // },
   ];
 
-  return (<AppLayout title="Timeoff">
+  return (<AppLayout title="Obat Keluar">
     <div className="border rounded-lg bg-white shadow p-6 relative">
-      <h3 className="text-2xl font-normal">Your time off information</h3>
-      <div className="text-sm text-gray-500 font-semibold italic mt-10 mb-3.5">This is a summary of your time off balance</div>
+      <h3 className="text-2xl font-normal">History Obat Keluar</h3>
+      <div className="text-sm text-gray-500 font-semibold italic mt-10 mb-3.5">Ini adalah history obat masuk yang ada di rumah sakit anda</div>
       <div className="text-xs font-semibold flex items-center gap-2">
-        <button type="button" className="border-2 border-primary bg-white rounded-lg py-2.5 px-3.5">Request Timeoff</button>
+        <button type="button" className="border-2 border-primary bg-white rounded-lg py-2.5 px-3.5">Tambah Data</button>
         {/* <button type="button" className="border-2 border-primary bg-white rounded-lg py-2.5 px-3.5">Request Delegation</button> */}
       </div>
-      <div className={data.length > 0 ? "mt-12" : "mt-0"}>
+      <div className={data.length > 0 ? "mt-6" : "mt-0"}>
         <TableData column={columns} data={data} />
       </div>
     </div>

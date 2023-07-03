@@ -36,10 +36,10 @@ export default function ScheduleDoctor() {
       <h3 className="text-2xl font-normal">Jadwal Dokter</h3>
       <div className="text-sm text-gray-500 font-semibold italic mt-10 mb-3.5">Ini adalah jadwal yang ada di rumah sakit anda</div>
       <div className="text-xs font-semibold flex items-center gap-2">
-        <button type="button" className="border-2 border-primary bg-white rounded-lg py-2.5 px-3.5">Tambah Jadwal Dokter</button>
+        <button type="button" className="border-2 border-primary bg-white rounded-lg py-2.5 px-3.5">Tambah Data</button>
         {/* <button type="button" className="border-2 border-primary bg-white rounded-lg py-2.5 px-3.5">View Attendance Log</button> */}
       </div>
-      <div className={data.length > 0 ? "mt-8" : "mt-0"}>
+      <div className={data.length > 0 ? "mt-6" : "mt-0"}>
         <TableData column={columns} data={data} />
       </div>
     </div>

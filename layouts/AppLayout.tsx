@@ -5,6 +5,7 @@ import { getCookie } from "cookies-next";
 import localFont from "next/font/local";
 import Sidebar from "@/components/Sidebar";
 import Head from "next/head";
+import NextNProgress from "nextjs-progressbar";
 
 const font = localFont({src: [
   {
@@ -65,5 +66,6 @@ export default function AppLayout({children, title}: LProps) {
         {children}
       </Sidebar>
     </div>
+    <NextNProgress color="rgb(192, 42, 52)" />
   </>);
 }
