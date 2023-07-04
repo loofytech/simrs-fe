@@ -3,10 +3,7 @@ import {
   FiAirplay,
   FiTarget,
   FiBriefcase,
-  FiCreditCard,
-  FiFileText,
-  FiArchive,
-  FiGrid
+  FiBookOpen
 } from "react-icons/fi";
 
 const routes = [
@@ -17,24 +14,16 @@ const routes = [
   },
   {
     label: "Pasien",
-    path: "/dashboard/general",
-    icon: <FiUser size={22} />,
+    path: "/dashboard/patient",
+    icon: <FiBookOpen size={22} />,
     children: [
       {
-        label: "Personal",
-        path: "/personal"
+        label: "List Pasien",
+        path: "/list"
       },
       {
-        label: "Employment",
-        path: "/employment"
-      },
-      {
-        label: "Education & Experience",
-        path: "/education-experience"
-      },
-      {
-        label: "Additional Info",
-        path: "/additional-info"
+        label: "Pendaftaran",
+        path: "/register"
       },
     ]
   },

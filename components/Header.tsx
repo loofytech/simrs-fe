@@ -17,7 +17,7 @@ export default function Header({children}: CProps) {
     <div className="flex items-center gap-2">
       <div className="flex flex-col items-end">
         <span className="font-bold leading-5">Agung Ardiyanto</span>
-        <span className="text-xs text-gray-500">Frontend Developer</span>
+        <span className="text-xs text-gray-500">Administrasi</span>
       </div>
       <div className="dropdown dropdown-end">
         <label
