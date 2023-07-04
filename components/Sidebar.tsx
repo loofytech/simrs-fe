@@ -36,7 +36,7 @@ export default function Sidebar({children}: CProps) {
         </div>
         <div className="h-full">
           {routes.map((rts: any, key: number) => {
-            if (!rts.children) return (<div key={key}>
+            if (!rts.children) return (<div className="" key={key}>
               <li
                 className={`w-full text-base mb-2 rounded-lg menu-item ${router.asPath === rts.path ? "menu-active" : ""}`}
               >
