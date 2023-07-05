@@ -2,12 +2,14 @@ import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { openCreatePatient } from "@/store/reducers/modal";
 import { FiLoader, FiX, FiSearch, FiInfo } from "react-icons/fi";
+import SelectRegional from "../Select/SelectRegional";
 
 interface CProps {
   title: string;
 }
 
 export default function ModalCreatePatient({title}: CProps) {
+  const [registration, setRegistration] = useState<boolean>(false);
   const [searchLoad, setSearchLoad] = useState<boolean>(false);
   const [infoResultSearch, setInfoResultSearch] = useState<boolean>(false);
   const {CREATE_PATIENT} = useSelector((state: any) => state.modal);
@@ -35,9 +37,11 @@ export default function ModalCreatePatient({title}: CProps) {
   const openRegistrationForm = () => {
     setInfoResultSearch(false);
     dispatch(openCreatePatient(false));
+    setRegistration(true);
   }
 
   return (<>
+    {/* modal search */}
     <input type="checkbox" id="modal" checked={CREATE_PATIENT} onChange={() => {}} className="modal-toggle" />
     <div className="modal">
       <div className="modal-box px-0">
@@ -71,6 +75,7 @@ export default function ModalCreatePatient({title}: CProps) {
         </div>
       </div>
     </div>
+    {/* modal confirmation search result */}
     <input type="checkbox" id="resultSearch" checked={infoResultSearch} onChange={() => {}} className="modal-toggle" />
     <div className="modal">
       <div className="modal-box px-0">
@@ -90,6 +95,36 @@ export default function ModalCreatePatient({title}: CProps) {
             >
               Buat data baru
             </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    {/* modal form registration */}
+    <input type="checkbox" id="registration" checked={registration} onChange={() => {}} className="modal-toggle" />
+    <div className="modal">
+      <div className="modal-box px-0">
+        <div className="flex items-center justify-between mb-5" style={{paddingLeft: "1.5rem", paddingRight: "1.5rem"}}>
+          <h3 className="font-bold text-lg">{title}</h3>
+          <div className="w-auto h-auto cursor-pointer bg-primary p-1 rounded-full" onClick={() => setRegistration(false)}>
+            <FiX size={24} color="#FFF" />
+          </div>
+        </div>
+        <div style={{paddingLeft: "1.5rem", paddingRight: "1.5rem"}}>
+          <div className="flex flex-col gap-2 mb-3.5">
+            <span className="text-sm font-semibold">Provinsi</span>
+            <SelectRegional label="Pilih Provinsi" type="province" />
+          </div>
+          <div className="flex flex-col gap-2 mb-3.5">
+            <span className="text-sm font-semibold">Kabupaten</span>
+            <SelectRegional label="Pilih Kabupaten" type="regency" />
+          </div>
+          <div className="flex flex-col gap-2 mb-3.5">
+            <span className="text-sm font-semibold">Kecamatan</span>
+            <SelectRegional label="Pilih Kecamatan" type="district" />
+          </div>
+          <div className="flex flex-col gap-2 mb-3.5">
+            <span className="text-sm font-semibold">Kelurahan</span>
+            <SelectRegional label="Pilih Kelurahan" type="subdistrict" />
           </div>
         </div>
       </div>
