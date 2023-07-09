@@ -66,3 +66,15 @@ body {
 .rdt_TableBody .rdt_TableRow {
   font-size: 14px;
 }
+.with-custom-scrollbar::-webkit-scrollbar {
+  width: 5px;
+}
+.with-custom-scrollbar::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+.with-custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgb(192, 42, 52);
+}
+.with-custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgb(192, 42, 52);
+}

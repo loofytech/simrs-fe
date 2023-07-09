@@ -14,7 +14,7 @@ export function middleware(request: NextRequest) {
   }
   if (rtsPath === "auth") {
     const cookie = request.cookies.get("_aA_AdC");
-    if (cookie && cookie.value === "true") {
+    if (cookie) {
       return NextResponse.redirect(new URL("/dashboard", request.url));
     }
   }

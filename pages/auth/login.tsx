@@ -1,6 +1,8 @@
 import localFont from "next/font/local";
 import Link from "next/link";
-import { setCookie } from "cookies-next";
+import { setCookie, getCookie } from "cookies-next";
+import { useState } from "react";
+import { useEffectOnce } from "usehooks-ts";
 
 const font = localFont({src: [
   {
@@ -36,9 +38,28 @@ const font = localFont({src: [
 ]});
 
 export default function AuthLogin() {
+  const [email, setEmail] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
+
+  useEffectOnce(() => {
+    const cok = getCookie("_aA_AdC");
+  });
+
   const handleLogin = async () => {
-    const cok = setCookie("_aA_AdC", true, {});
-    return location.reload();
+    const request = await fetch("/sample/user.json");
+    const data = await request.json();
+    
+    const user = data.filter((dt: any) => dt.username == email);
+    if (user.length > 0) {
+      if (user[0].password == password) {
+        const cok = setCookie("_aA_AdC", JSON.stringify(user[0]), {});
+        return location.reload();
+      } else {
+        console.log("error");
+      }
+    } else {
+      console.log("error");
+    }
   }
 
   return (
@@ -52,15 +73,19 @@ export default function AuthLogin() {
             id="email"
             className="text-sm border rounded-lg outline-none px-3 py-2 mt-1.5"
             autoComplete="off"
+            value={email}
+            onChange={(evt: any) => setEmail(evt.target.value)}
           />
         </div>
         <div className="flex flex-col mt-4">
           <label htmlFor="password" className="text-sm font-semibold">Password</label>
           <input
-            type="text"
+            type="password"
             id="password"
             className="text-sm border rounded-lg outline-none px-3 py-2 mt-1.5"
             autoComplete="off"
+            value={password}
+            onChange={(evt: any) => setPassword(evt.target.value)}
           />
         </div>
         <button className="w-full text-white text-sm bg-blue-600 rounded-lg py-3 mt-8" onClick={handleLogin}>Sign in</button>

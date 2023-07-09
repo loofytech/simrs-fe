@@ -7,5 +7,5 @@ export async function getServerSideProps(context: any) {
       permanent: false,
       destination: "/auth/login",
     }
-  }  
+  }
 }
