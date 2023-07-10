@@ -223,8 +223,8 @@ export default function FormRegistration() {
           <SelectStatic label="Pilih Jadwal" options={schedule} />
         </div>
         <div className="flex flex-col gap-2 w-full">
-          <span className="text-sm font-semibold">Layanan</span>
-          <SelectStatic label="Pilih Layanan" options={services} />
+          <span className="text-sm font-semibold">Dokter Luar</span>
+          <input type="text" className="w-full outline-none border text-sm h-10 px-4 rounded-md" autoComplete="off" placeholder="Dokter Luar" />
         </div>
       </div>
     </div>
