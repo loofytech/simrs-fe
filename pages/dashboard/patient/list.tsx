@@ -1,16 +1,7 @@
 import AppLayout from "@/layouts/AppLayout";
 import TableData from "@/components/DataTable";
-import ModalCreatePatient from "@/components/Modal/ModalCreatePatient";
-import { useDispatch } from "react-redux";
-import { openCreatePatient } from "@/store/reducers/modal";
 
 export default function ListPatient() {
-  const dispatch = useDispatch();
-
-  const openCreate = () => {
-    dispatch(openCreatePatient(true));
-  }
-
   const columns = [
     {name: "Nama", selector: (row: any) => {
       return <div className="flex items-center gap-2">
@@ -51,13 +42,12 @@ export default function ListPatient() {
       <h3 className="text-2xl font-normal">List Pasien</h3>
       <div className="text-sm text-gray-500 font-semibold italic mt-10 mb-3.5">Ini adalah list pasien yang ada di rumah sakit anda</div>
       <div className="text-xs font-semibold flex items-center gap-2">
-        <button type="button" onClick={openCreate} className="border-2 border-primary bg-white rounded-lg py-2.5 px-3.5">Tambah Data</button>
+        {/* <button type="button" className="border-2 border-primary bg-white rounded-lg py-2.5 px-3.5">Tambah Data</button> */}
         {/* <button type="button" className="border-2 border-primary bg-white rounded-lg py-2.5 px-3.5">View Attendance Log</button> */}
       </div>
-      <div className={data.length > 0 ? "mt-6" : "mt-0"}>
+      <div className={data.length > 0 ? "mt-2" : "mt-0"}>
         <TableData column={columns} data={data} />
       </div>
     </div>
-    <ModalCreatePatient title="Tambah Pasien" />
   </AppLayout>);
 }

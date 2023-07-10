@@ -78,3 +78,9 @@ body {
 .with-custom-scrollbar::-webkit-scrollbar-thumb:hover {
   background: rgb(192, 42, 52);
 }
+.react-datepicker-wrapper {
+  width: 100% !important;
+}
+.react-datepicker__tab-loop {
+  position: absolute !important;
+}

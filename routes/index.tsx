@@ -13,20 +13,25 @@ const routes = [
     icon: <FiAirplay size={22} />
   },
   {
-    label: "Pasien",
-    path: "/dashboard/patient",
-    icon: <FiBookOpen size={22} />,
-    children: [
-      {
-        label: "List Pasien",
-        path: "/list"
-      },
-      {
-        label: "Pendaftaran",
-        path: "/register"
-      },
-    ]
+    label: "Pendaftaran",
+    path: "/dashboard/patient/register",
+    icon: <FiAirplay size={22} />
   },
+  // {
+  //   label: "Pasien",
+  //   path: "/dashboard/patient",
+  //   icon: <FiBookOpen size={22} />,
+  //   children: [
+  //     {
+  //       label: "List Pasien",
+  //       path: "/list"
+  //     },
+  //     {
+  //       label: "Pendaftaran",
+  //       path: "/register"
+  //     },
+  //   ]
+  // },
   {
     label: "Obat",
     path: "/dashboard/medicine",
