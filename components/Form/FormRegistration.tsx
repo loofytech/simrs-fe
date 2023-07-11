@@ -22,6 +22,9 @@ export default function FormRegistration() {
     address: ""
   });
 
+  const [payment, setPayment] = useState<number>(0);
+  const [insurance, setInsurance] = useState<boolean>(false);
+
   const [formData, setFormData] = useState<any>({
     nik: "",
     name: "",
@@ -179,7 +182,19 @@ export default function FormRegistration() {
     }
   }
 
+  const handlePaymentChange = (val: string) => {
+    setPayment(parseInt(val));
+    switch(val) {
+      case "0":
+        setInsurance(false);
+        break;
+      case "1":
+        setInsurance(true);
+    }
+  }
+
   return <div className="mt-5 gap-5 grid grid-cols-1 md:grid-cols-2">
+    {/* Data Pasien */}
     <div className="flex flex-col border rounded-md shadow p-3">
       <div className="flex justify-between items-center gap-1 flex-col md:gap-3 md:flex-row">
         <span className="font-bold text-xl text-primary whitespace-nowrap">Data Pasien</span>
@@ -341,6 +356,57 @@ export default function FormRegistration() {
       </div>
     </div>
     <div className="flex flex-col gap-5">
+      {/* Form Rencana Pembayaran */}
+      <div className="flex flex-col border rounded-md shadow p-3">
+        <span className="font-bold text-xl text-primary">Rencana Pembayaran</span>
+        <div className="border-b my-2"></div>
+        <div className="flex items-center justify-between p-2">
+          <span>Rencana Pembayaran</span>
+          <div className="flex items-center gap-2">
+            <label className="cursor-pointer label">
+              <input
+                type="radio"
+                className="radio radio-sm radio-primary"
+                checked={payment == 0 ? true : false}
+                value={0}
+                onChange={(evt) => handlePaymentChange(evt.target.value)}
+              />
+              <span className="label-text ml-1.5">Bayar Sendiri</span>
+            </label>
+            <label className="cursor-pointer label">
+              <input
+                type="radio"
+                className="radio radio-sm radio-primary"
+                checked={payment == 1 ? true : false}
+                value={1}
+                onChange={(evt) => handlePaymentChange(evt.target.value)}
+              />
+              <span className="label-text ml-1.5">Asuransi</span>
+            </label>
+          </div>
+        </div>
+        {insurance && <div className="flex items-center flex-col md:flex-row gap-4 border-t pt-3 p-2">
+          <div className="flex flex-col gap-2 w-full">
+            <span className="text-sm font-semibold">Asuransi</span>
+            <input
+              type="text"
+              className="w-full outline-none border text-sm h-10 px-4 rounded-md"
+              autoComplete="off"
+              placeholder="Cari Asuransi"
+            />
+          </div>
+          <div className="flex flex-col gap-2 w-full">
+            <span className="text-sm font-semibold">No. Polis</span>
+            <input
+              type="text"
+              className="w-full outline-none border text-sm h-10 px-4 rounded-md"
+              autoComplete="off"
+              placeholder="No. Polis"
+            />
+          </div>
+        </div>}
+      </div>
+      {/* Penanggung Jawab */}
       <div className="flex flex-col border rounded-md shadow p-3">
         <div className="flex items-center justify-between">
           <span className="font-bold text-xl text-primary">Penanggung Jawab</span>
@@ -406,8 +472,9 @@ export default function FormRegistration() {
           </div>
         </div>
       </div>
+      {/* Pelayanan */}
       <div className="flex flex-col border rounded-md shadow p-3">
-        <span className="font-bold text-lg text-primary">Pelayanan Klinik</span>
+        <span className="font-bold text-xl text-primary">Pelayanan Klinik</span>
         <div className="border-b my-2"></div>
         <div className="p-2 grid grid-cols-1 gap-4">
           <div className="flex flex-col gap-2 w-full">
