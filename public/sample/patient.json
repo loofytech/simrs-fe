@@ -1,0 +1,24 @@
+[
+  {
+    "nik": "1234567890876653",
+    "name": "Agung Ardiyanto",
+    "telephone": "082179099557",
+    "gender": "Laki-laki",
+    "place_of_birth": "Lampung",
+    "date_of_birth": "1996-12-14",
+    "religion": "Islam",
+    "blood": "AB",
+    "province_id": "18",
+    "province_name": "LAMPUNG",
+    "regency_id": "18.7",
+    "regency_name": "KAB. LAMPUNG TIMUR",
+    "district_id": "18.07.11",
+    "district_name": "Marga Tiga",
+    "subdistrict_id": "18.07.11.2006",
+    "subdistrict_name": "Sukaraja Tiga",
+    "address": "Jl. Panglima Polim No.1, RT.11/RW.7, Kramat Pela, Kec. Kby. Baru, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12160",
+    "marital_status": "Belum Menikah",
+    "job": "Tidak Bekerja",
+    "education": "SMA"
+  }
+]

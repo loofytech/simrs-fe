@@ -2,7 +2,7 @@ import { requestDistrict, requestProvince, requestRegency, requestSubDistrict } 
 import { FiChevronDown, FiX, FiSearch } from "react-icons/fi";
 import { useSelector, useDispatch } from "react-redux";
 import { setProvince, setRegency, setDistrict, setSubdistrict } from "@/store/reducers/regional";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 interface CProps {
   label: string;
@@ -17,6 +17,21 @@ export default function SelectRegional({label, type}: CProps) {
   const [search, setSearch] = useState<string>("");
   const {PROVINCE, REGENCY, DISTRICT, SUBDISTRICT} = useSelector((state: any) => state.regional);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (PROVINCE && type == "province") {
+      setSelectedLabel(PROVINCE.label);
+    }
+    if (REGENCY && type == "regency") {
+      setSelectedLabel(REGENCY.label);
+    }
+    if (DISTRICT && type == "district") {
+      setSelectedLabel(DISTRICT.label);
+    }
+    if (SUBDISTRICT && type == "subdistrict") {
+      setSelectedLabel(SUBDISTRICT.label);
+    }
+  }, [type, PROVINCE]);
 
   const requestData = async () => {
     setOptions(null);
@@ -34,7 +49,7 @@ export default function SelectRegional({label, type}: CProps) {
       });
     }
     if (type == "regency") {
-      const request = await requestRegency(PROVINCE);
+      const request = await requestRegency(PROVINCE.value);
       data = request.map((d: any) => {
         return {
           label: d.name,
@@ -43,7 +58,7 @@ export default function SelectRegional({label, type}: CProps) {
       });
     }
     if (type == "district") {
-      const request = await requestDistrict(REGENCY);
+      const request = await requestDistrict(REGENCY.value);
       data = request.map((d: any) => {
         return {
           label: d.name,
@@ -52,7 +67,7 @@ export default function SelectRegional({label, type}: CProps) {
       });
     }
     if (type == "subdistrict") {
-      const request = await requestSubDistrict(DISTRICT);
+      const request = await requestSubDistrict(DISTRICT.value);
       data = request.map((d: any) => {
         return {
           label: d.name,
@@ -72,20 +87,20 @@ export default function SelectRegional({label, type}: CProps) {
       dispatch(setDistrict(null));
       dispatch(setSubdistrict(null));
       setTimeout(() => {
-        dispatch(setProvince(value));
+        dispatch(setProvince({label: label, value: value}));
       }, 100);
     }
     if (type == "regency") {
-      dispatch(setRegency(value));
+      dispatch(setRegency({label: label, value: value}));
       dispatch(setDistrict(null));
       dispatch(setSubdistrict(null));
     }
     if (type == "district") {
-      dispatch(setDistrict(value));
+      dispatch(setDistrict({label: label, value: value}));
       dispatch(setSubdistrict(null));
     }
     if (type == "subdistrict") {
-      dispatch(setSubdistrict(value));
+      dispatch(setSubdistrict({label: label, value: value}));
     }
 
     setSelectedLabel(label);

@@ -84,3 +84,6 @@ body {
 .react-datepicker__tab-loop {
   position: absolute !important;
 }
+.Toastify__close-button.Toastify__close-button--colored {
+  display: none !important;
+}

@@ -6,6 +6,8 @@ import localFont from "next/font/local";
 import Sidebar from "@/components/Sidebar";
 import Head from "next/head";
 import NextNProgress from "nextjs-progressbar";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const font = localFont({src: [
   {
@@ -67,5 +69,6 @@ export default function AppLayout({children, title}: LProps) {
       </Sidebar>
     </div>
     <NextNProgress color="rgb(192, 42, 52)" />
+    <ToastContainer />
   </>);
 }
