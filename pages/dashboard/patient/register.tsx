@@ -5,13 +5,24 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { openCreatePatient } from "@/store/reducers/modal";
 import FormRegistration from "@/components/Form/FormRegistration";
+import { useEffectOnce } from "usehooks-ts";
+import { useRouter } from "next/router";
 
 export default function RegisterPatient() {
   const [create, setCreate] = useState<boolean>(false);
   const dispatch = useDispatch();
+  const router = useRouter();
+
+  useEffectOnce(() => {
+    const hash = router.asPath.split("#");
+    if (hash.length > 1) {
+      if (hash[1] == "create") setCreate(true);
+    }
+  });
 
   const openCreate = () => {
     // dispatch(openCreatePatient(true));
+    router.push({pathname: router.pathname, hash: "create"});
     setCreate(true);
   }
 
