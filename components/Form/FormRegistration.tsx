@@ -14,6 +14,14 @@ export default function FormRegistration() {
   const {PROVINCE, REGENCY, DISTRICT, SUBDISTRICT} = useSelector((state: any) => state.regional);
   const dispatch = useDispatch();
 
+  const [personResponsible, setPersonResponsible] = useState<boolean>(false);
+  const [personResponsibleData, setPersonResponsibleData] = useState<any>({
+    name: "",
+    phone: "",
+    relation: "",
+    address: ""
+  });
+
   const [formData, setFormData] = useState<any>({
     nik: "",
     name: "",
@@ -150,6 +158,25 @@ export default function FormRegistration() {
   const handleFormData = (event: any) => {
     const {name, value} = event.target;
     setFormData((prevFormData: any) => ({ ...prevFormData, [name]: value }));
+  }
+
+  const handleResponsible = (event: any) => {
+    setPersonResponsible(!personResponsible ? true : false)
+    if (!personResponsible) {
+      setPersonResponsibleData({
+        name: formData.name,
+        phone: formData.telephone,
+        relation: "Pasien Sendiri",
+        address: formData.address
+      });
+    } else {
+      setPersonResponsibleData({
+        name: "",
+        phone: "",
+        relation: "",
+        address: ""
+      });
+    }
   }
 
   return <div className="mt-5 gap-5 grid grid-cols-1 md:grid-cols-2">
@@ -315,24 +342,67 @@ export default function FormRegistration() {
     </div>
     <div className="flex flex-col gap-5">
       <div className="flex flex-col border rounded-md shadow p-3">
-        <span className="font-bold text-lg text-primary">Penanggung Jawab</span>
+        <div className="flex items-center justify-between">
+          <span className="font-bold text-xl text-primary">Penanggung Jawab</span>
+          <label className="cursor-pointer label">
+            <input
+              type="checkbox"
+              checked={personResponsible}
+              onChange={handleResponsible}
+              className="rounded-sm checkbox checkbox-sm checkbox-primary"
+            />
+            <span className="label-text ml-1 text-primary">Pasien Sendiri</span>
+          </label>
+        </div>
         <div className="border-b my-2"></div>
         <div className="p-2 grid grid-cols-1 gap-4">
           <div className="flex flex-col gap-2">
             <span className="text-sm font-semibold">Nama</span>
-            <input type="text" className="w-full outline-none border text-sm h-10 px-4 rounded-md" autoComplete="off" placeholder="Nomor Lengkap" />
+            <input
+              type="text"
+              className="w-full outline-none border text-sm h-10 px-4 rounded-md"
+              autoComplete="off"
+              placeholder="Nomor Lengkap"
+              value={personResponsibleData.name}
+              onChange={(evt) => setPersonResponsibleData(evt.target.value)}
+              disabled={personResponsible}
+            />
           </div>
           <div className="flex flex-col gap-2">
             <span className="text-sm font-semibold">Telepon</span>
-            <input type="text" className="w-full outline-none border text-sm h-10 px-4 rounded-md" autoComplete="off" placeholder="No. Telepon / Hp" />
+            <input
+              type="text"
+              className="w-full outline-none border text-sm h-10 px-4 rounded-md"
+              autoComplete="off"
+              placeholder="No. Telepon / Hp"
+              value={personResponsibleData.phone}
+              onChange={(evt) => setPersonResponsibleData(evt.target.value)}
+              disabled={personResponsible}
+            />
           </div>
           <div className="flex flex-col gap-2">
             <span className="text-sm font-semibold">Hubungan</span>
-            <input type="text" className="w-full outline-none border text-sm h-10 px-4 rounded-md" autoComplete="off" placeholder="Hubungan Dengan Pasien" />
+            <input
+              type="text"
+              className="w-full outline-none border text-sm h-10 px-4 rounded-md"
+              autoComplete="off"
+              placeholder="Hubungan Dengan Pasien"
+              value={personResponsibleData.relation}
+              onChange={(evt) => setPersonResponsibleData(evt.target.value)}
+              disabled={personResponsible}
+            />
           </div>
           <div className="flex flex-col gap-2">
             <span className="text-sm font-semibold">Alamat</span>
-            <input type="text" className="w-full outline-none border text-sm h-10 px-4 rounded-md" autoComplete="off" placeholder="Alamat Lengkap" />
+            <input
+              type="text"
+              className="w-full outline-none border text-sm h-10 px-4 rounded-md"
+              autoComplete="off"
+              placeholder="Alamat Lengkap"
+              value={personResponsibleData.address}
+              onChange={(evt) => setPersonResponsibleData(evt.target.value)}
+              disabled={personResponsible}
+            />
           </div>
         </div>
       </div>
