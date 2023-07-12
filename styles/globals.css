@@ -5,6 +5,10 @@
 body {
   background-color: rgb(245,245,249);
 }
+button:disabled {
+  opacity: 0.8;
+  cursor: no-drop;
+}
 .tab.tab-active:not(.tab-disabled):not([disabled]) {
   border-color: rgb(192, 42, 52);
 }

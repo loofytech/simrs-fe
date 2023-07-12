@@ -6,9 +6,11 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useSelector, useDispatch } from "react-redux";
 import SelectStatic from "../Select/SelectStatic";
-import { FiSearch } from "react-icons/fi";
+import { FiSearch, FiLoader } from "react-icons/fi";
 import { info, success, error } from "@/utils/toastification";
 import { setProvince, setRegency, setDistrict, setSubdistrict } from "@/store/reducers/regional";
+import { openCompleteRegistration } from "@/store/reducers/modal";
+import ModalAfterSubmitRegistration from "../Modal/ModalAfterSubmitRegistration";
 
 export default function FormRegistration() {
   const {PROVINCE, REGENCY, DISTRICT, SUBDISTRICT} = useSelector((state: any) => state.regional);
@@ -47,6 +49,8 @@ export default function FormRegistration() {
     work: "",
     education: ""
   });
+
+  const [submitData, setSubmitData] = useState<boolean>(false);
 
   const [religions, setReligions] = useState<any>([
     {label: "Islam", value: "Islam"},
@@ -191,6 +195,18 @@ export default function FormRegistration() {
       case "1":
         setInsurance(true);
     }
+  }
+
+  const handleSubmit = (evt: any) => {
+    evt.preventDefault();
+    evt.target.disabled = true;
+    setSubmitData(true);
+
+    setTimeout(() => {
+      evt.target.disabled = false;
+      setSubmitData(false);
+      dispatch(openCompleteRegistration(true));
+    }, 2000);
   }
 
   return <div className="mt-5 gap-5 grid grid-cols-1 md:grid-cols-2">
@@ -497,8 +513,16 @@ export default function FormRegistration() {
       </div>
       <div className="mt-1 flex items-center justify-end gap-2">
         <button type="button" className="h-10 px-5 rounded-md text-primary border-2 border-primary font-bold">Kembali</button>
-        <button type="button" className="h-10 px-5 rounded-md text-white border-2 border-primary font-bold bg-primary">Submit</button>
+        <button
+          type="button"
+          className="h-10 px-5 flex items-center gap-1 rounded-md text-white border-2 border-primary font-bold bg-primary"
+          onClick={handleSubmit}
+        >
+          Submit
+          {submitData && <FiLoader size={18} className="animate-spin" />}
+        </button>
       </div>
     </div>
+    <ModalAfterSubmitRegistration />
   </div>;
 }
