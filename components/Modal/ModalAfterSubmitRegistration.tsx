@@ -32,11 +32,11 @@ export default function ModalAfterSubmitRegistration() {
     />
     <div className="modal">
       <div className="modal-box rounded-md">
-        <h3 className="font-bold text-lg">Hello!</h3>
-        <p className="py-4">This modal works with a hidden checkbox!</p>
+        <h3 className="font-bold text-lg">Proses pendaftaran selesai</h3>
+        <p className="py-4">Apakah, anda ingin melakukan pendaftaran lagi?</p>
         <div className="modal-action">
           <button type="button" onClick={handleCloseInput} className="btn rounded-md">Tidak</button>
-          <button type="button" onClick={handleNextInput} className="rounded-md btn bg-primary text-white hover:bg-primary">Ya, Entry lagi!</button>
+          <button type="button" onClick={handleNextInput} className="rounded-md btn bg-primary text-white hover:bg-primary">Ya, Daftar Lagi</button>
         </div>
       </div>
     </div>
